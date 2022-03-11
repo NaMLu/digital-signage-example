@@ -1,0 +1,172 @@
+.form button, .form .form-element input,
+.form .form-element select, .form .form-element label, .form .header, .list div {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container img, .container video, .container {
+  position: relative;
+}
+
+.form .iconArea, .form .iconList {
+  flex-direction: column;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border-radius: 10px 0 0 10px;
+  cursor: pointer;
+}
+
+.form .iconArea, .form .iconList, .form {
+  position: absolute;
+}
+
+.container img, .container video, .container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.container img, .container video {
+  object-fit: fill;
+}
+
+.form button, .form .form-element input,
+.form .form-element select, .form .form-element {
+  width: 100%;
+}
+
+.form button, .form .form-element input,
+.form .form-element select, .form .header, .form {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.form {
+  top: 30px;
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 0 5px 5px 5px;
+  width: 400px;
+  font-family: "Roboto", sans-serif;
+  transition: all 1s ease-in-out;
+}
+
+.unvisible-modal {
+  right: -400px;
+}
+
+.visible-modal {
+  right: 30px;
+}
+
+.form .iconArea .active {
+  background-color: #1956a7 !important;
+}
+
+.list > .active {
+  color: #1956a7;
+  font-weight: bold;
+}
+
+.form .icon {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  height: 50px;
+  width: 45px;
+  justify-content: center;
+  border-radius: 10px 0 0 10px;
+  margin-bottom: 10px;
+}
+
+.form .iconList {
+  top: 120px;
+}
+
+.area {
+  height: 402px;
+}
+
+.list {
+  height: calc(100% - 30px - 15px);
+  overflow-y: auto;
+}
+
+.list div {
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.list i {
+  font-size: 8px;
+  margin-right: 10px;
+}
+
+.form .iconArea {
+  left: -45px;
+  top: 0;
+}
+
+.form .icon i {
+  color: #12214a;
+}
+
+.form .header {
+  height: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #12214a;
+  margin-bottom: 20px;
+  padding: 0 0 15px 0;
+}
+
+.form .form-element {
+  margin: 10px 0;
+}
+
+.form .form-element label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.form .form-element input,
+.form .form-element select {
+  display: block;
+  margin: 5px 0;
+  padding: 10px;
+  border: 2px solid #f0f0f0;
+  border-radius: 5px;
+}
+
+.form .form-element input:focus,
+.form .form-element input:active,
+.form .form-element select:focus,
+.form .form-element select:active {
+  border: 2px solid rgba(67, 117, 166, 0.3);
+  box-shadow: 0 0 5px rgba(67, 117, 166, 0.3);
+}
+
+.form button {
+  background-color: #1956a7;
+  border: 0;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 10px 0;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=base.css.map */

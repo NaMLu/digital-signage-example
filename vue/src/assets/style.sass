@@ -1,0 +1,186 @@
+@use "sass:math"
+
+$screen-width: 100vw
+$screen-height: 100vh
+$full-width: 100%
+$font-family: 'Roboto', sans-serif
+$border-color: #f0f0f0
+$focus-color: rgb(67, 117, 166, 0.3)
+$button-bg-color: #1956a7
+$modal-width: 400px
+$header-height: 30px
+
+%antialiased-text
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+%position-relative
+  position: relative
+
+%icon-style
+  flex-direction: column
+  width: 45px
+  display: flex
+  align-items: center
+  justify-content: center
+  font-size: 18px
+  border-radius: 10px 0 0 10px
+  cursor: pointer
+
+%position-absolute
+  position: absolute
+
+%fullscreen-dimensions
+  width: $screen-width
+  height: $screen-height
+
+%object-fit-fill
+  object-fit: fill
+
+%fullwidth
+  width: $full-width
+
+%border-box
+  box-sizing: border-box
+
+%no-margin-and-padding
+  margin: 0
+  padding: 0
+
+
+body
+  @extend %no-margin-and-padding
+
+.container
+  @extend %fullscreen-dimensions
+  @extend %position-relative
+
+.container video
+  @extend %fullscreen-dimensions
+  @extend %position-relative
+  @extend %object-fit-fill
+
+.container img
+  @extend %fullscreen-dimensions
+  @extend %position-relative
+  @extend %object-fit-fill
+
+.form
+  @extend %position-absolute
+  @extend %border-box
+  top: 30px
+  background-color: #fff
+  padding: 15px 20px
+  border-radius: 0 5px 5px 5px
+  width: $modal-width
+  font-family: $font-family
+  transition: all 1s ease-in-out
+
+.unvisible-modal
+  right: -$modal-width
+
+.visible-modal
+  right: 30px
+
+.form .iconArea .active
+  background-color: $button-bg-color !important
+
+.list > .active
+  color: $button-bg-color
+  font-weight: bold
+
+.form .icon
+  display: flex
+  align-items: center
+  background-color: #ffffff
+  height: 50px
+  width: 45px
+  justify-content: center
+  border-radius: 10px 0 0 10px
+  margin-bottom: 10px
+
+.form .iconList
+  @extend %position-absolute
+  @extend %icon-style
+  top: 120px
+
+.area
+  height: 402px
+
+.list
+  height: calc(100% - #{$header-height} - 15px)
+  overflow-y: auto
+
+.list div
+  @extend %antialiased-text
+  font-size: 16px
+  display: flex
+  flex-direction: row
+  align-items: center
+  margin-bottom: 10px
+
+.list i
+  font-size: 8px
+  margin-right: 10px
+
+.form .iconArea
+  @extend %position-absolute
+  @extend %icon-style
+  left: -45px
+  top: 0
+
+.form .icon i
+  color: #12214a
+
+.form .header
+  @extend %border-box
+  @extend %antialiased-text
+  height: $header-height
+  font-weight: bold
+  font-size: 16px
+  border-bottom: 1px solid $border-color
+  color: #12214a
+  margin-bottom: 20px
+  padding: 0 0 15px 0
+
+.form .form-element
+  @extend %fullwidth
+  margin: 10px 0
+
+.form .form-element label
+  @extend %antialiased-text
+  display: block
+  font-size: 14px
+  margin-bottom: 10px
+  font-weight: bold
+
+.form .form-element input,
+.form .form-element select
+  @extend %border-box
+  @extend %fullwidth
+  @extend %antialiased-text
+  display: block
+  margin: 5px 0
+  padding: 10px
+  border: 2px solid $border-color
+  border-radius: 5px
+
+.form .form-element input:focus,
+.form .form-element input:active,
+.form .form-element select:focus,
+.form .form-element select:active
+  border: 2px solid $focus-color
+  box-shadow: 0 0 5px $focus-color
+
+.form button
+  @extend %border-box
+  @extend %fullwidth
+  @extend %antialiased-text
+  background-color: $button-bg-color
+  border: 0
+  margin-top: 10px
+  border-radius: 5px
+  padding: 10px 0
+  color: #ffffff
+  cursor: pointer
+  font-weight: bold
