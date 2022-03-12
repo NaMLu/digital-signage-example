@@ -83,5 +83,5 @@ After:
 
 ```sh
 php artisan migrate --seed
-php artisan server --port=1955
+php artisan serve --port=1955
 ```
