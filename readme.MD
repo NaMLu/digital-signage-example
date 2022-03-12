@@ -36,10 +36,15 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
+Database if not exists:
+
+```
+php artisan db:create
+```
+
 After:
 
 ```sh
-php artisan db:create
 php artisan migrate --seed
 php artisan serve --port=1955
 ```

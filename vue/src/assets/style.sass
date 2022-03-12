@@ -35,7 +35,7 @@ $header-height: 30px
   height: $screen-height
 
 %object-fit-fill
-  object-fit: fill
+  object-fit: contain
 
 %fullwidth
   width: $full-width
@@ -52,6 +52,7 @@ body
   @extend %no-margin-and-padding
   @extend %fullscreen-dimensions
   overflow: hidden
+  background-color: $button-bg-color
 
 .container
   @extend %fullscreen-dimensions

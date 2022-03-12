@@ -16,20 +16,24 @@ export class PlayListAxiosClass implements IPlayListService {
   }
 
   async addPlayListItem(item: IPlayListItem): Promise<void> {
-    this.list.push(
-      await this.getAxios()
-        .post("/add", {
-          name: item.name,
-          duration: item.duration,
-          type: item.type,
-          url: item.url,
-        })
-        .then(({ data }) =>
-          data.items.length > 0
-            ? (data.items[0] as IPlayListItem)
-            : ({} as IPlayListItem)
-        )
-    );
+    try {
+      this.list.push(
+        await this.getAxios()
+          .post("/add", {
+            name: item.name,
+            duration: item.duration,
+            type: item.type,
+            url: item.url,
+          })
+          .then(({ data }) =>
+            data.items.length > 0
+              ? (data.items[0] as IPlayListItem)
+              : ({} as IPlayListItem)
+          )
+      );
+    } catch (e) {
+      console.log("Add new item request error !");
+    }
   }
 
   getPlayList() {
@@ -39,7 +43,11 @@ export class PlayListAxiosClass implements IPlayListService {
   async fetchPlayList(): Promise<void> {
     this.list = await this.getAxios()
       .get("/playlist")
-      .then(({ data }) => data.items as IPlayListItem[]);
+      .then(({ data }) => data.items as IPlayListItem[])
+      .catch(function (error) {
+        console.log("Fetch All Request error !");
+        return Promise.reject(error);
+      });
   }
 
   getAxios() {

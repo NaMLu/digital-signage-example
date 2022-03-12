@@ -23,13 +23,13 @@
   position: absolute;
 }
 
-.container img, .container video, .container {
+.container img, .container video, .container, body {
   width: 100vw;
   height: 100vh;
 }
 
 .container img, .container video {
-  object-fit: fill;
+  object-fit: contain;
 }
 
 .form button, .form .form-element input,
@@ -45,6 +45,11 @@
 body {
   margin: 0;
   padding: 0;
+}
+
+body {
+  overflow: hidden;
+  background-color: #1956a7;
 }
 
 .form {
