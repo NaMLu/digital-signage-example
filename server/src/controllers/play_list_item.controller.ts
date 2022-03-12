@@ -14,6 +14,22 @@ const getAllItems = async (
   response.status(all.status).send({ message: all.message, items: all.items });
 };
 
+const addNewItem = (
+    request: Request,
+    response: {
+        status: (arg0: number) => {
+            send: { (arg0: { message: string; items?: IPlayListItem[] }): void };
+        };
+    }
+) => {
+    const add = service.add({
+        'name': request.body.name,
+        'url': request.body.url,
+        'type': request.body.type,
+        'duration': request.body.duration,
+    });
+};
+
 export default {
   getAllItems,
 };

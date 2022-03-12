@@ -20,8 +20,14 @@ export default class PlayListItemLocalVariableService
     },
   ] as IPlayListItem[];
 
-  add(Item: IPlayListItem): void {
+  add(Item: IPlayListItem): IPlayListItemResponse {
     this.list.push(Item);
+
+    return {
+      items: [Item],
+      message: "Success",
+      status: 200,
+    } as IPlayListItemResponse;
   }
 
   all(): IPlayListItemResponse {

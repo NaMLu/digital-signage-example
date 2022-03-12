@@ -18,10 +18,15 @@ export default class PlayListItemMongodbService
     db.initial();
   }
 
-  add(Item: IPlayListItem): void {}
+  add(Item: IPlayListItem): IPlayListItemResponse {
+    return {
+      items: [Item],
+      message: "Success",
+      status: 200,
+    } as IPlayListItemResponse;
+  }
 
   async all(): Promise<IPlayListItemResponse> {
-    let result = {} as IPlayListItemResponse;
     try {
       const Items = await Item.find<IPlayListItem>({});
 
@@ -30,24 +35,12 @@ export default class PlayListItemMongodbService
         message: "Success",
         status: 200,
       } as IPlayListItemResponse;
-    } catch (e) {}
-
-    Item.find<IPlayListItem>({})
-      .then((response) => {
-        result = {
-          items: response,
-          message: "Success",
-          status: 200,
-        } as IPlayListItemResponse;
-      })
-      .catch((err) => {
-        result = {
-          items: [],
-          message: "Success",
-          status: 200,
-        } as IPlayListItemResponse;
-      });
-
-    return result;
+    } catch (e) {
+      return {
+        items: [],
+        message: "Error",
+        status: 404,
+      } as IPlayListItemResponse;
+    }
   }
 }
