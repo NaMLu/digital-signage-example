@@ -18,13 +18,17 @@ export class PlayListAxiosClass implements IPlayListService {
   async addPlayListItem(item: IPlayListItem): Promise<void> {
     this.list.push(
       await this.getAxios()
-        .post<IPlayListItem>("/add", {
+        .post("/add", {
           name: item.name,
           duration: item.duration,
           type: item.type,
           url: item.url,
         })
-        .then(({ data }) => data)
+        .then(({ data }) =>
+          data.items.length > 0
+            ? (data.items[0] as IPlayListItem)
+            : ({} as IPlayListItem)
+        )
     );
   }
 
