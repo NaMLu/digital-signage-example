@@ -15,19 +15,21 @@ const getAllItems = async (
 };
 
 const addNewItem = (
-    request: Request,
-    response: {
-        status: (arg0: number) => {
-            send: { (arg0: { message: string; items?: IPlayListItem[] }): void };
-        };
-    }
+  request: Request,
+  response: {
+    status: (arg0: number) => {
+      send: { (arg0: { message: string; items?: IPlayListItem[] }): void };
+    };
+  }
 ) => {
-    const add = service.add({
-        'name': request.body.name,
-        'url': request.body.url,
-        'type': request.body.type,
-        'duration': request.body.duration,
-    });
+  const add = service.add({
+    name: request.body.name,
+    url: request.body.url,
+    type: request.body.type,
+    duration: request.body.duration,
+  });
+
+  response.status(add.status).send({ message: add.message, items: add.items });
 };
 
 export default {
