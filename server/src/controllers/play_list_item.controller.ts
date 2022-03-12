@@ -14,7 +14,7 @@ const getAllItems = async (
   response.status(all.status).send({ message: all.message, items: all.items });
 };
 
-const addNewItem = (
+const addNewItem = async (
   request: Request,
   response: {
     status: (arg0: number) => {
@@ -22,7 +22,7 @@ const addNewItem = (
     };
   }
 ) => {
-  const add = service.add({
+  const add = await service.add({
     name: request.body.name,
     url: request.body.url,
     type: request.body.type,
@@ -34,4 +34,5 @@ const addNewItem = (
 
 export default {
   getAllItems,
+  addNewItem,
 };
