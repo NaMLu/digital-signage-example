@@ -6,6 +6,7 @@
   "scripts": {
     "start": "ts-node app.ts",
     "dev": "ts-node-dev app.ts",
+    "nodemon": "nodemon --exec ts-node app.ts",
     "eslint:check": "eslint --ext .ts ."
   },
   "keywords": [],

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 class PlayListController extends Controller
 {
     private $interface;
+
     public function __construct(PlayListItemInterface $interface) {
         $this->interface = $interface;
     }
