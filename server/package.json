@@ -7,7 +7,8 @@
     "start": "ts-node app.ts",
     "dev": "ts-node-dev app.ts",
     "nodemon": "nodemon --exec ts-node app.ts",
-    "eslint:check": "eslint --ext .ts ."
+    "eslint:check": "eslint --ext .ts .",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "typescript": "^4.6.2"
   },
   "devDependencies": {
+    "@rushstack/eslint-patch": "^1.1.0",
     "@types/cors": "^2.8.12",
     "@types/mongoose": "^5.11.97",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
