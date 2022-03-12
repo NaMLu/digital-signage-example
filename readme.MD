@@ -1,30 +1,5 @@
 # Digital Signage Example - Vue Project
 
-## Run Vue Project
-
-```sh
-cd vue
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
-
 ## Run NodeJS Server
 
 ```sh
@@ -35,28 +10,10 @@ npm run nodemon
 
 ### Node JS Server With Mongodb ( Optional )
 
-Edit server/src/services/index.ts:
+Edit server/.env:
 
-```typescript
-// import PlayListItemMongodbService from "./mongodb/PlayListItemMongodbService";
-import PlayListItemLocalVariableService from "./localVariable/PlayListItemLocalVariableService";
-import { IPlayListItemService } from "../interfaces/play_list_item_service.interface";
-
-const service: IPlayListItemService = new PlayListItemLocalVariableService();
-
-export default service;
-```
-
-to:
-
-```typescript
-import PlayListItemMongodbService from "./mongodb/PlayListItemMongodbService";
-// import PlayListItemLocalVariableService from "./localVariable/PlayListItemLocalVariableService";
-import { IPlayListItemService } from "../interfaces/play_list_item_service.interface";
-
-const service: IPlayListItemService = new PlayListItemMongodbService();
-
-export default service;
+```sh
+ISMONGO=true
 ```
 
 ## Run Laravel Server with MySQL ( Optional )
@@ -82,6 +39,32 @@ DB_PASSWORD=
 After:
 
 ```sh
+php artisan db:create
 php artisan migrate --seed
 php artisan serve --port=1955
+```
+
+## Run Vue Project
+
+```sh
+cd vue
+npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Type-Check, Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
 ```
